@@ -16,10 +16,25 @@ import styled, { keyframes } from "styled-components";
 import "./App.css";
 
 const Appstyled = styled.div`
-	ul {
-		color: ${(pr) => pr.theme.textColor};
-	}
+display: flex;
+margin: auto;
+align-items: center;
+justify-content: center;
+.margin {
+  padding: 1em;
+  font-size:1em;
+}
+.tiled {
+  display: flex;
+  flex-wrap: wrap;
+  }
+  .card {
+    max-width:25%;
+    margin: 1em;
+    background-color: rgba(255, 255, 255, .75)
+  }
 	li {
+    color: ${(pr) => pr.theme.textColor};
 		background-color: ${(pr) => pr.theme.background};
 		border-bottom: 1px solid black;
 	}
@@ -46,12 +61,14 @@ const App = (props) => {
 	return (
 		<Appstyled>
 			<Container>
-				<Card>
+          <Row className='offset-1'>
 					{characterData.map((char, index) => {
-						return (
+            return (
+              <Card className='col-3'>
+              <Col>
 							<CardBody>
 								<CardTitle>{char.name}</CardTitle>
-								<CardSubtitle>
+								<CardSubtitle className='margin'>
 									{characterData[index].films.map((film) => `${film}, `)}
 								</CardSubtitle>
 								<CardText>
@@ -64,9 +81,11 @@ const App = (props) => {
 									</ListGroup>
 								</CardText>
 							</CardBody>
+              </Col>
+				</Card>
 						);
 					})}
-				</Card>
+          </Row>
 			</Container>
 		</Appstyled>
 	);
