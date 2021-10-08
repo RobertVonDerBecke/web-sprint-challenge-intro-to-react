@@ -15,11 +15,15 @@ import {
 import styled, { keyframes } from "styled-components";
 import "./App.css";
 
+// const keyF = keyframes`
+// 100% { opacity: 1}
+// `
 const Appstyled = styled.div`
 display: flex;
 margin: auto;
 align-items: center;
 justify-content: center;
+
 .margin {
   padding: 1em;
   font-size:1em;
@@ -31,7 +35,8 @@ justify-content: center;
   .card {
     max-width:25%;
     margin: 1em;
-    background-color: rgba(255, 255, 255, .75)
+    background-color: rgba(255, 255, 255, .75);
+
   }
 	li {
     color: ${(pr) => pr.theme.textColor};
